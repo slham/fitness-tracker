@@ -301,7 +301,6 @@ const Progress: React.FC = () => {
 
       {/* Charts */}
       <Grid container spacing={3}>
-        {/* Workouts Over Time */}
         <Grid>
           <Card>
             <CardContent>
@@ -328,8 +327,6 @@ const Progress: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-
-        {/* Muscle Group Distribution */}
         <Grid>
           <Card>
             <CardContent>
@@ -357,8 +354,6 @@ const Progress: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-
-        {/* Volume Progress */}
         <Grid>
           <Card>
             <CardContent>

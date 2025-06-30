@@ -119,13 +119,7 @@ const WorkoutForm: React.FC = () => {
   };
 
   const handleExerciseNameChange = (index: number, name: string) => {
-    const common = commonExercises.find(ex => ex.name === name);
-    if (common) {
-      updateExercise(index, 'name', name);
-      updateExercise(index, 'muscles', common.muscles);
-    } else {
-      updateExercise(index, 'name', name);
-    }
+    updateExercise(index, 'name', name);
   };
 
   const addMuscle = (exerciseIndex: number, muscleGroup: string) => {
@@ -245,6 +239,7 @@ const WorkoutForm: React.FC = () => {
                 <Grid container spacing={2}>
                   <Grid>
                     <Autocomplete
+                      sx={{width:300}}
                       options={commonExercises.map(ex => ex.name)}
                       value={exercise.name}
                       onInputChange={(_, value) => handleExerciseNameChange(exerciseIndex, value)}
@@ -263,6 +258,7 @@ const WorkoutForm: React.FC = () => {
                   <Grid>
                     <Autocomplete
                       multiple
+                      sx={{width:300}}
                       options={muscleGroups}
                       value={exercise.muscles.map(m => m.muscleGroup)}
                       onChange={(_, values) => {
