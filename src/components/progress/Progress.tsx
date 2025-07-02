@@ -305,32 +305,6 @@ const Progress: React.FC = () => {
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>
-                Workouts Over Time
-              </Typography>
-              <Box sx={{ height: 300 }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={progressData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
-                    <YAxis />
-                    <Tooltip />
-                    <Line 
-                      type="monotone" 
-                      dataKey="workouts" 
-                      stroke="#2196F3" 
-                      strokeWidth={2}
-                      dot={{ r: 4 }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
                 Muscle Group Focus
               </Typography>
               <Box sx={{ height: 300 }}>
@@ -349,28 +323,6 @@ const Progress: React.FC = () => {
                     </Pie>
                     <Tooltip />
                   </PieChart>
-                </ResponsiveContainer>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Training Volume (Weight × Reps)
-              </Typography>
-              <Box sx={{ height: 300 }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={progressData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
-                    <YAxis />
-                    <Tooltip 
-                      formatter={(value: number) => [value.toLocaleString(), 'Total Volume']}
-                    />
-                    <Bar dataKey="totalWeight" fill="#4CAF50" />
-                  </BarChart>
                 </ResponsiveContainer>
               </Box>
             </CardContent>
