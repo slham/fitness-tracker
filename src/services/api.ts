@@ -7,6 +7,12 @@ import {
   Workout,
   CreateWorkoutRequest,
   UpdateWorkoutRequest,
+  Calendar,
+  CreateCalendarRequest,
+  UpdateCalendarRequest,
+  Snapshot,
+  CreateSnapshotRequest,
+  UpdateSnapshotRequest,
   PaginationParams,
 } from '../types/api';
 
@@ -98,6 +104,84 @@ class ApiService {
 
   async deleteWorkout(userId: string, workoutId: string): Promise<void> {
     await this.api.delete(`/users/${userId}/workouts/${workoutId}`);
+  }
+
+  // Calendar endpoints
+  async createCalendar(userId: string, calendarData: CreateCalendarRequest): Promise<Calendar> {
+    const response = await this.api.post(`/users/${userId}/calendars`, calendarData);
+    return response.data;
+  }
+
+  async getCalendars(userId: string, params?: PaginationParams): Promise<Calendar[]> {
+    const response = await this.api.get(`/users/${userId}/calendars`, { params });
+    return response.data;
+  }
+
+  async getCalendar(userId: string, calendarId: string): Promise<Calendar> {
+    const response = await this.api.get(`/users/${userId}/calendars/${calendarId}`);
+    return response.data;
+  }
+
+  async updateCalendar(
+    userId: string,
+    calendarId: string,
+    calendarData: UpdateCalendarRequest
+  ): Promise<Calendar> {
+    const response = await this.api.patch(`/users/${userId}/calendars/${calendarId}`, calendarData);
+    return response.data;
+  }
+
+  async deleteCalendar(userId: string, calendarId: string): Promise<void> {
+    await this.api.delete(`/users/${userId}/calendars/${calendarId}`);
+  }
+
+  // Snapshot endpoints
+  async createSnapshot(
+    userId: string,
+    calendarId: string,
+    snapshotData: CreateSnapshotRequest
+  ): Promise<Snapshot> {
+    const response = await this.api.post(`/users/${userId}/calendars/${calendarId}/snapshots`, snapshotData);
+    return response.data;
+  }
+
+  async getSnapshots(
+    userId: string,
+    calendarId: string,
+    params?: PaginationParams
+  ): Promise<Snapshot[]> {
+    const response = await this.api.get(`/users/${userId}/calendars/${calendarId}/snapshots`, { params });
+    return response.data;
+  }
+
+  async getSnapshot(
+    userId: string,
+    calendarId: string,
+    snapshotId: string
+  ): Promise<Snapshot> {
+    const response = await this.api.get(`/users/${userId}/calendars/${calendarId}/snapshots/${snapshotId}`);
+    return response.data;
+  }
+
+  async updateSnapshot(
+    userId: string,
+    calendarId: string,
+    snapshotId: string,
+    snapshotData: UpdateSnapshotRequest
+  ): Promise<Snapshot> {
+    const response = await this.api.patch(
+      `/users/${userId}/calendars/${calendarId}/snapshots/${snapshotId}`,
+      snapshotData
+    );
+    return response.data;
+  }
+
+  async deleteSnapshot(
+    userId: string,
+    calendarId: string,
+    snapshotId: string
+  ): Promise<void> {
+    await this.api.delete(`/users/${userId}/calendars/${calendarId}/snapshots/${snapshotId}`);
   }
 }
 

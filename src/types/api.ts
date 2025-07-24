@@ -52,7 +52,14 @@ export interface Exercise {
 
 export interface Muscle {
   name: string;
-  muscleGroup: 'arms' | 'back' | 'chest' | 'core' | 'heart' | 'legs' | 'shoulders';
+  muscleGroup:
+    | "arms"
+    | "back"
+    | "chest"
+    | "core"
+    | "heart"
+    | "legs"
+    | "shoulders";
 }
 
 export interface Set {
@@ -70,6 +77,41 @@ export interface UpdateWorkoutRequest {
   exercises?: Exercise[];
 }
 
+export interface Calendar {
+  id: string;
+  name: string;
+  user_id: string;
+  created: string;
+  updated: string;
+}
+
+export interface CreateCalendarRequest {
+  name: string;
+}
+
+export interface UpdateCalendarRequest {
+  name?: string;
+}
+
+export interface Snapshot {
+  id: string;
+  calendar_id: string;
+  done: string;
+  workout: Workout;
+  created: string;
+  updated: string;
+}
+
+export interface CreateSnapshotRequest {
+  done: string;
+  workout: Workout;
+}
+
+export interface UpdateSnapshotRequest {
+  done?: string;
+  workout?: Workout;
+}
+
 // API Response types
 export interface ApiResponse<T> {
   data: T;
@@ -85,6 +127,6 @@ export interface ListResponse<T> {
 export interface PaginationParams {
   limit?: number;
   offset?: number;
-  sort?: 'asc' | 'desc';
-  sort_column?: 'created' | 'updated' | 'id';
+  sort?: "asc" | "desc";
+  sort_column?: "created" | "updated" | "id";
 }
