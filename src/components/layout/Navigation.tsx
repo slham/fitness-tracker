@@ -26,6 +26,7 @@ import {
   Brightness7,
   ExitToApp,
   Timeline,
+  CalendarToday,
 } from '@mui/icons-material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -60,6 +61,7 @@ const Navigation: React.FC = () => {
   const navigationItems = [
     { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard' },
     { text: 'New Workout', icon: <Add />, path: '/workout/new' },
+    { text: 'Calendars', icon: <CalendarToday />, path: '/calendars' },
     { text: 'Progress', icon: <Timeline />, path: '/progress' },
   ];
 

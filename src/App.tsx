@@ -10,6 +10,9 @@ import Register from './components/auth/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import WorkoutForm from './components/workout/WorkoutForm';
 import Progress from './components/progress/Progress';
+import CalendarList from './components/calendar/CalendarList';
+import CalendarForm from './components/calendar/CalendarForm';
+import CalendarView from './components/calendar/CalendarView';
 import ProtectedRoute from './components/common/ProtectedRoute';
 
 function App() {
@@ -50,6 +53,38 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Progress />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendars"
+              element={
+                <ProtectedRoute>
+                  <CalendarList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendar/new"
+              element={
+                <ProtectedRoute>
+                  <CalendarForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendar/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <CalendarForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendar/:id"
+              element={
+                <ProtectedRoute>
+                  <CalendarView />
                 </ProtectedRoute>
               }
             />

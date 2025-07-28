@@ -22,6 +22,7 @@ import {
   Edit,
   Delete,
   PlayArrow,
+  CalendarToday,
 } from '@mui/icons-material';
 import { format, parseISO } from 'date-fns';
 import { Workout } from '../../types/api';
@@ -155,6 +156,18 @@ const Dashboard: React.FC = () => {
             sx={{ py: 2 }}
           >
             New Workout
+          </Button>
+        </Grid>
+        <Grid>
+          <Button
+            fullWidth
+            variant="outlined"
+            size="large"
+            startIcon={<CalendarToday />}
+            onClick={() => navigate('/calendars')}
+            sx={{ py: 2 }}
+          >
+            My Calendars
           </Button>
         </Grid>
         <Grid>
